@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="JQZ-33-EdE"/>
                         <viewControllerLayoutGuide type="bottom" id="diE-0x-f0L"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="U7D-xF-Cea" customClass="DetailMovieView" customModule="个人电影管理系统" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="U7D-xF-Cea" customClass="DetailView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -37,21 +37,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TO4-DI-q8Y" userLabel="电影图片">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="TO4-DI-q8Y" userLabel="电影图片">
                                                     <rect key="frame" x="128" y="10" width="120" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="H0N-PC-eUH"/>
                                                         <constraint firstAttribute="height" constant="180" id="iNo-So-6kL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-uP-b8v">
-                                                    <rect key="frame" x="256" y="160" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OVB-uP-b8v" firstAttribute="bottom" secondItem="TO4-DI-q8Y" secondAttribute="bottom" id="7Ub-7L-ECT"/>
-                                                <constraint firstItem="OVB-uP-b8v" firstAttribute="leading" secondItem="TO4-DI-q8Y" secondAttribute="trailing" constant="8" id="CbC-AE-PmQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="TO4-DI-q8Y" secondAttribute="centerY" id="uk3-xN-qDU"/>
                                                 <constraint firstAttribute="centerX" secondItem="TO4-DI-q8Y" secondAttribute="centerX" id="xLc-DA-c9p"/>
                                             </constraints>
@@ -155,7 +149,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="kf1-DA-hCb" customClass="CastCell" customModule="个人电影管理系统" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="kf1-DA-hCb" customClass="CastCell">
                                                 <rect key="frame" x="0.0" y="15" width="91" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -184,14 +178,14 @@
                                                     <constraint firstItem="So4-tX-v5y" firstAttribute="centerX" secondItem="kf1-DA-hCb" secondAttribute="centerX" id="zOy-UF-QM8"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="castImage" destination="So4-tX-v5y" id="Cfq-0Y-gRs"/>
-                                                    <outlet property="castName" destination="1rW-m7-vm5" id="ETq-zc-9Wv"/>
+                                                    <outlet property="castImage" destination="So4-tX-v5y" id="tr8-zv-lTw"/>
+                                                    <outlet property="castName" destination="1rW-m7-vm5" id="YFb-dt-VM7"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
-                                            <outlet property="dataSource" destination="ocy-xx-0el" id="3K5-7v-pQk"/>
-                                            <outlet property="delegate" destination="ocy-xx-0el" id="MKU-TP-4zu"/>
+                                            <outlet property="dataSource" destination="U7D-xF-Cea" id="IrT-9c-flX"/>
+                                            <outlet property="delegate" destination="U7D-xF-Cea" id="gHU-jD-8CR"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
@@ -221,21 +215,23 @@
                             <constraint firstItem="v3J-y0-rLt" firstAttribute="top" secondItem="U7D-xF-Cea" secondAttribute="top" id="fLd-T6-bRM"/>
                             <constraint firstItem="diE-0x-f0L" firstAttribute="top" secondItem="v3J-y0-rLt" secondAttribute="bottom" id="l3w-Br-Xy4"/>
                         </constraints>
+                        <connections>
+                            <outlet property="akaLabel" destination="A8N-2L-cOg" id="JSr-oO-wMo"/>
+                            <outlet property="bgImage" destination="zxH-hs-F4c" id="0NX-XJ-I59"/>
+                            <outlet property="castCollectionView" destination="Qx0-HM-G2h" id="WsA-55-4g0"/>
+                            <outlet property="castLabel" destination="o9Y-6c-Crj" id="OkY-Zh-mul"/>
+                            <outlet property="countryLabel" destination="duG-Ea-kmd" id="Goi-KV-ayE"/>
+                            <outlet property="drictorName" destination="4bB-0b-T3R" id="EXq-6X-oSg"/>
+                            <outlet property="layout" destination="V5U-Wp-Kof" id="fdk-gY-lfg"/>
+                            <outlet property="movieIcon" destination="TO4-DI-q8Y" id="obH-25-Hj1"/>
+                            <outlet property="movieName" destination="i3v-Kt-bbl" id="CXY-Iz-CSm"/>
+                            <outlet property="summryContent" destination="ayn-YQ-x63" id="fPa-5i-UIJ"/>
+                            <outlet property="summryLabel" destination="X9t-nP-hPl" id="uph-4v-KRr"/>
+                            <outlet property="typeLabel" destination="lnp-OR-N86" id="vIO-I4-BSa"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="akaLabel" destination="A8N-2L-cOg" id="BRC-nq-XQA"/>
-                        <outlet property="bgImage" destination="zxH-hs-F4c" id="2AT-Cf-xTp"/>
-                        <outlet property="castCollectionView" destination="Qx0-HM-G2h" id="nq6-Ns-bca"/>
-                        <outlet property="castLabel" destination="o9Y-6c-Crj" id="3YH-sT-eZq"/>
-                        <outlet property="countryLabel" destination="duG-Ea-kmd" id="fJ5-ts-Ikm"/>
-                        <outlet property="drictorName" destination="4bB-0b-T3R" id="RCH-bs-SKN"/>
-                        <outlet property="layout" destination="V5U-Wp-Kof" id="3oW-tT-lQy"/>
-                        <outlet property="mainScrollView" destination="v3J-y0-rLt" id="3Pa-dS-bPv"/>
-                        <outlet property="movieIcon" destination="TO4-DI-q8Y" id="yNL-Kv-tjH"/>
-                        <outlet property="movieName" destination="i3v-Kt-bbl" id="kzk-Kn-0yG"/>
-                        <outlet property="summryContent" destination="ayn-YQ-x63" id="3bX-Tk-tlI"/>
-                        <outlet property="summryLabel" destination="X9t-nP-hPl" id="acN-0e-IbN"/>
-                        <outlet property="typeLabel" destination="lnp-OR-N86" id="4do-at-O0U"/>
+                        <outlet property="detailView" destination="U7D-xF-Cea" id="lOw-bk-Ivq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KWn-oa-76V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,4 +239,7 @@
             <point key="canvasLocation" x="172" y="252"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderImage" width="180" height="180"/>
+    </resources>
 </document>

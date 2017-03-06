@@ -331,7 +331,7 @@
         <!--热映-->
         <scene sceneID="Ob2-Cq-7s0">
             <objects>
-                <navigationController title="热映" automaticallyAdjustsScrollViewInsets="NO" id="8gp-3u-u6t" sceneMemberID="viewController">
+                <navigationController title="热映" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="8gp-3u-u6t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="tgL-Op-x1b">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="热映"/>
@@ -354,7 +354,7 @@
         <!--排行-->
         <scene sceneID="JxV-Dl-5Ip">
             <objects>
-                <navigationController title="排行" automaticallyAdjustsScrollViewInsets="NO" id="YhA-Dp-3eS" sceneMemberID="viewController">
+                <navigationController title="排行" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="YhA-Dp-3eS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="dO4-fW-rDc">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="排行"/>
@@ -377,7 +377,7 @@
         <!--个人-->
         <scene sceneID="61R-XH-Zwc">
             <objects>
-                <navigationController title="个人" automaticallyAdjustsScrollViewInsets="NO" id="QJq-bz-UVj" sceneMemberID="viewController">
+                <navigationController title="个人" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="QJq-bz-UVj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="fBs-D8-Wrm">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="个人"/>

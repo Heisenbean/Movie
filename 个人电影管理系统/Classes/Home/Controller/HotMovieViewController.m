@@ -11,6 +11,7 @@
 #import "MovieModel.h"
 #import "SVProgressHUD.h"
 #import "Api.h"
+#import "DetailViewController.h"
 @interface HotMovieViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
@@ -71,6 +72,9 @@ static NSString *CellIdentifier = @"cell";
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    MovieModel *model = self.models[indexPath.row];
+    DetailViewController *detail = [UIStoryboard initialViewControllerWithSbName:@"Detail"];
+    detail.movieId = model.id;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 @end

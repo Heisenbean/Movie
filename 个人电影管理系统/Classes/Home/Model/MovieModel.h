@@ -52,5 +52,6 @@
 
 @property (strong,nonatomic) NSArray  *directors;  // 导演
 
+@property (nonatomic,copy) NSString *id;
 
 @end

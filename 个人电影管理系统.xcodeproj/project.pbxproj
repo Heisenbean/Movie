@@ -119,6 +119,8 @@
 		35B20B8D1E67E2FE00B99AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B20B8B1E67E2FE00B99AF0 /* Main.storyboard */; };
 		35B20B8F1E67E2FE00B99AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B20B8E1E67E2FE00B99AF0 /* Assets.xcassets */; };
 		35B20B921E67E2FE00B99AF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B20B901E67E2FE00B99AF0 /* LaunchScreen.storyboard */; };
+		35DC82C41E6D4F82005C445B /* DetailMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC82C31E6D4F82005C445B /* DetailMovie.m */; };
+		35DC82C71E6D7B1E005C445B /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC82C61E6D7B1E005C445B /* DetailView.m */; };
 		35E1BE0F1E68262C0047EDC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE0E1E68262C0047EDC6 /* UIKit.framework */; };
 		35E1BE111E6826340047EDC6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE101E6826340047EDC6 /* CoreFoundation.framework */; };
 		35E1BE131E68263C0047EDC6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE121E68263C0047EDC6 /* CoreText.framework */; };
@@ -358,6 +360,10 @@
 		35B20B8E1E67E2FE00B99AF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35B20B911E67E2FE00B99AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35B20B931E67E2FE00B99AF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35DC82C21E6D4F82005C445B /* DetailMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMovie.h; sourceTree = "<group>"; };
+		35DC82C31E6D4F82005C445B /* DetailMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMovie.m; sourceTree = "<group>"; };
+		35DC82C51E6D7B1E005C445B /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		35DC82C61E6D7B1E005C445B /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 		35E1BE0E1E68262C0047EDC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35E1BE101E6826340047EDC6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		35E1BE121E68263C0047EDC6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -437,6 +443,10 @@
 			children = (
 				356687AF1E6D242C006A53BA /* MovieModel.h */,
 				356687B01E6D242C006A53BA /* MovieModel.m */,
+				35DC82C21E6D4F82005C445B /* DetailMovie.h */,
+				35DC82C31E6D4F82005C445B /* DetailMovie.m */,
+				35DC82C51E6D7B1E005C445B /* DetailView.h */,
+				35DC82C61E6D7B1E005C445B /* DetailView.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1091,6 +1101,7 @@
 				356689021E6D242C006A53BA /* YYSentinel.m in Sources */,
 				356689051E6D242C006A53BA /* YYTimer.m in Sources */,
 				356688FB1E6D242C006A53BA /* YYTextView.m in Sources */,
+				35DC82C71E6D7B1E005C445B /* DetailView.m in Sources */,
 				356688AF1E6D242C006A53BA /* FMDatabaseQueue.m in Sources */,
 				356688E31E6D242C006A53BA /* YYSpriteSheetImage.m in Sources */,
 				356688B31E6D242C006A53BA /* SVProgressAnimatedView.m in Sources */,
@@ -1146,6 +1157,7 @@
 				356688A81E6D242C006A53BA /* UserModel.m in Sources */,
 				356688C01E6D242C006A53BA /* NSObject+YYAddForARC.m in Sources */,
 				356689071E6D242C006A53BA /* YYWeakProxy.m in Sources */,
+				35DC82C41E6D4F82005C445B /* DetailMovie.m in Sources */,
 				356688BA1E6D242C006A53BA /* NSDate+YYAdd.m in Sources */,
 				356688FA1E6D242C006A53BA /* YYLabel.m in Sources */,
 				356689081E6D242C006A53BA /* Top250ViewController.m in Sources */,

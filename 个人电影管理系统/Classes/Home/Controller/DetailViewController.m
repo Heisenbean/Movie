@@ -7,27 +7,39 @@
 //
 
 #import "DetailViewController.h"
+#import "Api.h"
+#import "CastCell.h"
+#import "DetailView.h"
 
 @interface DetailViewController ()
+@property (strong, nonatomic) IBOutlet DetailView *detailView;
 
 @end
 
 @implementation DetailViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadData];
+//    [self.castCollectionView registerClass:[CastCell class] forCellWithReuseIdentifier:@"cell"];
     
+    [self loadData];
 }
 
 - (void)loadData{
-    
+    [[Api sharedAPI] getDetailMovies:self.movieId callback:^(DetailMovie *movie, NSError *error) {
+        self.detailView.movie = movie;
+    }];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

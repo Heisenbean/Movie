@@ -9,17 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *movieIcon;
-@property (weak, nonatomic) IBOutlet UILabel *movieName;
-@property (weak, nonatomic) IBOutlet UILabel *drictorName;
-@property (weak, nonatomic) IBOutlet UILabel *castLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *countryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *akaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *summryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *summryContent;
-@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
-@property (weak, nonatomic) IBOutlet UICollectionView *castCollectionView;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
+
+@property (nonatomic,copy) NSString *movieId;
 
 @end

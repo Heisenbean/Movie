@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MovieModel.h"
 @interface CastCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *castImage;
 @property (weak, nonatomic) IBOutlet UILabel *castName;
+@property (strong,nonatomic) Casts *cast;
 
 @end

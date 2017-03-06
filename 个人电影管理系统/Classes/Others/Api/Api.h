@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "MovieModel.h"
+#import "DetailMovie.h"
 @interface Api : NSObject
 + (instancetype)sharedAPI;
 
 - (void)getHotShowingMovies:(NSString *)action pageNum:(NSUInteger )start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *events, NSError *error))callback;
+
+- (void)getDetailMovies:(NSString *)id callback:(void (^)(DetailMovie  *movie, NSError *error))callback;
 @end

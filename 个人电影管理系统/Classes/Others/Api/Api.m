@@ -18,6 +18,8 @@
     return singleton;
 }
 
+
+
 - (void)getHotShowingMovies:(NSString *)action pageNum:(NSUInteger )start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *events, NSError *error))callback{
     // 1.创建一个网络路径
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,action]];
@@ -45,7 +47,25 @@
     
     // 6.最后一步，执行任务（resume也是继续执行）:
     [sessionDataTask resume];
+}
 
 
+- (void)getDetailMovies:(NSString *)id callback:(void (^)(DetailMovie *model, NSError *))callback{
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@subject/%@",baseUrl,id]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
+        if(!dict){
+            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+            callback(nil,error);
+        }else{
+            DetailMovie *model = [DetailMovie modelWithDictionary:dict];
+            callback(model,nil);
+        }
+    }];
+    
+    [sessionDataTask resume];
 }
 @end

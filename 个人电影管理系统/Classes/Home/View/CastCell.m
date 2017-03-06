@@ -9,5 +9,8 @@
 #import "CastCell.h"
 
 @implementation CastCell
-
+- (void)setCast:(Casts *)cast{
+    _castName.text = cast.name;
+    [_castImage setImageWithURL:[NSURL URLWithString:cast.avatars.medium] placeholder:[UIImage imageNamed:@"placeholderImage"]];
+}
 @end
