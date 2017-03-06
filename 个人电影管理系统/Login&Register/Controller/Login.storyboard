@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tre-t4-PbE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="uit-mF-NJo">
+            <objects>
+                <viewController id="tre-t4-PbE" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cWk-2G-U7c"/>
+                        <viewControllerLayoutGuide type="bottom" id="9pC-4a-znK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mra-8a-eq8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用个人电影管理系统" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfD-qo-W9x">
+                                <rect key="frame" x="65" y="60" width="245" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.1058823529" green="0.74509803919999995" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWP-eF-QCL">
+                                <rect key="frame" x="20" y="124" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J1u-i1-ECe">
+                                <rect key="frame" x="20" y="164" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMA-kR-fEu">
+                                <rect key="frame" x="20" y="221" width="158" height="30"/>
+                                <color key="backgroundColor" red="0.10588235294117647" green="0.74509803921568629" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login" destination="tre-t4-PbE" eventType="touchUpInside" id="enV-kw-4Yn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgj-0d-mQX">
+                                <rect key="frame" x="197" y="221" width="158" height="30"/>
+                                <color key="backgroundColor" red="0.1058823529" green="0.74509803919999995" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="regis" destination="tre-t4-PbE" eventType="touchUpInside" id="BnD-gQ-k7Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PWP-eF-QCL" firstAttribute="centerX" secondItem="zfD-qo-W9x" secondAttribute="centerX" id="3gP-J1-ntp"/>
+                            <constraint firstItem="PWP-eF-QCL" firstAttribute="top" secondItem="zfD-qo-W9x" secondAttribute="bottom" constant="40" id="430-lh-RhW"/>
+                            <constraint firstItem="OMA-kR-fEu" firstAttribute="top" secondItem="J1u-i1-ECe" secondAttribute="bottom" constant="27" id="4Ap-U3-kj6"/>
+                            <constraint firstItem="OMA-kR-fEu" firstAttribute="leading" secondItem="J1u-i1-ECe" secondAttribute="leading" id="9e4-6R-hY6"/>
+                            <constraint firstAttribute="trailing" secondItem="PWP-eF-QCL" secondAttribute="trailing" constant="20" id="Ccq-yc-on3"/>
+                            <constraint firstItem="PWP-eF-QCL" firstAttribute="leading" secondItem="Mra-8a-eq8" secondAttribute="leading" constant="20" id="D8m-Z7-Rbf"/>
+                            <constraint firstItem="OMA-kR-fEu" firstAttribute="trailing" secondItem="J1u-i1-ECe" secondAttribute="trailing" multiplier="0.5" id="GAI-Wp-J6n"/>
+                            <constraint firstItem="Wgj-0d-mQX" firstAttribute="height" secondItem="OMA-kR-fEu" secondAttribute="height" id="OCC-y1-xtl"/>
+                            <constraint firstItem="J1u-i1-ECe" firstAttribute="top" secondItem="PWP-eF-QCL" secondAttribute="bottom" constant="10" id="QH9-eH-ShP"/>
+                            <constraint firstItem="J1u-i1-ECe" firstAttribute="leading" secondItem="PWP-eF-QCL" secondAttribute="leading" id="Tai-2A-KJA"/>
+                            <constraint firstItem="Wgj-0d-mQX" firstAttribute="width" secondItem="OMA-kR-fEu" secondAttribute="width" id="bKx-Jh-Gtp"/>
+                            <constraint firstItem="Wgj-0d-mQX" firstAttribute="top" secondItem="OMA-kR-fEu" secondAttribute="top" id="ghx-42-bUD"/>
+                            <constraint firstItem="zfD-qo-W9x" firstAttribute="top" secondItem="cWk-2G-U7c" secondAttribute="bottom" constant="40" id="hIv-GC-yat"/>
+                            <constraint firstItem="J1u-i1-ECe" firstAttribute="trailing" secondItem="PWP-eF-QCL" secondAttribute="trailing" id="svs-et-gow"/>
+                            <constraint firstItem="zfD-qo-W9x" firstAttribute="centerX" secondItem="Mra-8a-eq8" secondAttribute="centerX" id="vRr-2J-p12"/>
+                            <constraint firstItem="Wgj-0d-mQX" firstAttribute="trailing" secondItem="J1u-i1-ECe" secondAttribute="trailing" id="vTQ-Sr-WvR"/>
+                            <constraint firstItem="J1u-i1-ECe" firstAttribute="centerX" secondItem="PWP-eF-QCL" secondAttribute="centerX" id="zDI-IJ-Ibl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="password" destination="J1u-i1-ECe" id="lxm-Rx-Qn1"/>
+                        <outlet property="userName" destination="PWP-eF-QCL" id="cU4-c0-aL0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iw6-WX-vBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="188" y="177"/>
+        </scene>
+    </scenes>
+</document>
