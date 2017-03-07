@@ -38,10 +38,15 @@
         NSArray *event = [NSArray modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
         
         if (event) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             callback(event,nil);
+        });
+           
         }else{
-            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
-            callback(nil,error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                callback(nil,error);
+            });
         }
     }];
     

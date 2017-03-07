@@ -9,6 +9,7 @@
 #ifndef Const_h
 #define Const_h
 #import "UIStoryboard+Category.h"
+#import "SVProgressHUD.h"
 static NSString * const baseUrl = @"https://api.douban.com/v2/movie/";
 
 #endif /* Const_h */

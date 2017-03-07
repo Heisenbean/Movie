@@ -121,6 +121,9 @@
 		35B20B921E67E2FE00B99AF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B20B901E67E2FE00B99AF0 /* LaunchScreen.storyboard */; };
 		35DC82C41E6D4F82005C445B /* DetailMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC82C31E6D4F82005C445B /* DetailMovie.m */; };
 		35DC82C71E6D7B1E005C445B /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC82C61E6D7B1E005C445B /* DetailView.m */; };
+		35DC839D1E6E9537005C445B /* PhotoBrwoserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC839C1E6E9537005C445B /* PhotoBrwoserViewController.m */; };
+		35DC839F1E6E9560005C445B /* PhotoBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DC839E1E6E9560005C445B /* PhotoBrowser.storyboard */; };
+		35DC83A21E6E972C005C445B /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC83A11E6E972C005C445B /* PhotoCell.m */; };
 		35E1BE0F1E68262C0047EDC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE0E1E68262C0047EDC6 /* UIKit.framework */; };
 		35E1BE111E6826340047EDC6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE101E6826340047EDC6 /* CoreFoundation.framework */; };
 		35E1BE131E68263C0047EDC6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE121E68263C0047EDC6 /* CoreText.framework */; };
@@ -362,8 +365,13 @@
 		35B20B931E67E2FE00B99AF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35DC82C21E6D4F82005C445B /* DetailMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMovie.h; sourceTree = "<group>"; };
 		35DC82C31E6D4F82005C445B /* DetailMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMovie.m; sourceTree = "<group>"; };
-		35DC82C51E6D7B1E005C445B /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
-		35DC82C61E6D7B1E005C445B /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
+		35DC82C51E6D7B1E005C445B /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailView.h; path = ../Model/DetailView.h; sourceTree = "<group>"; };
+		35DC82C61E6D7B1E005C445B /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailView.m; path = ../Model/DetailView.m; sourceTree = "<group>"; };
+		35DC839B1E6E9537005C445B /* PhotoBrwoserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBrwoserViewController.h; sourceTree = "<group>"; };
+		35DC839C1E6E9537005C445B /* PhotoBrwoserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBrwoserViewController.m; sourceTree = "<group>"; };
+		35DC839E1E6E9560005C445B /* PhotoBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoBrowser.storyboard; sourceTree = "<group>"; };
+		35DC83A01E6E972C005C445B /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		35DC83A11E6E972C005C445B /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		35E1BE0E1E68262C0047EDC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35E1BE101E6826340047EDC6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		35E1BE121E68263C0047EDC6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -445,8 +453,6 @@
 				356687B01E6D242C006A53BA /* MovieModel.m */,
 				35DC82C21E6D4F82005C445B /* DetailMovie.h */,
 				35DC82C31E6D4F82005C445B /* DetailMovie.m */,
-				35DC82C51E6D7B1E005C445B /* DetailView.h */,
-				35DC82C61E6D7B1E005C445B /* DetailView.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -454,6 +460,8 @@
 		356687B11E6D242C006A53BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35DC82C51E6D7B1E005C445B /* DetailView.h */,
+				35DC82C61E6D7B1E005C445B /* DetailView.m */,
 				356687B21E6D242C006A53BA /* CastCell.h */,
 				356687B31E6D242C006A53BA /* CastCell.m */,
 				356687B41E6D242C006A53BA /* HotMovieCell.h */,
@@ -576,6 +584,11 @@
 				356687CF1E6D242C006A53BA /* fmdb */,
 				356687DC1E6D242C006A53BA /* SVProgressHUD */,
 				356687E71E6D242C006A53BA /* YYKit */,
+				35DC83A01E6E972C005C445B /* PhotoCell.h */,
+				35DC83A11E6E972C005C445B /* PhotoCell.m */,
+				35DC839B1E6E9537005C445B /* PhotoBrwoserViewController.h */,
+				35DC839C1E6E9537005C445B /* PhotoBrwoserViewController.m */,
+				35DC839E1E6E9560005C445B /* PhotoBrowser.storyboard */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1042,6 +1055,7 @@
 				35B20B921E67E2FE00B99AF0 /* LaunchScreen.storyboard in Resources */,
 				35B20B8F1E67E2FE00B99AF0 /* Assets.xcassets in Resources */,
 				356688B11E6D242C006A53BA /* Info.plist in Resources */,
+				35DC839F1E6E9560005C445B /* PhotoBrowser.storyboard in Resources */,
 				35B20B8D1E67E2FE00B99AF0 /* Main.storyboard in Resources */,
 				356688A61E6D242C006A53BA /* Login.storyboard in Resources */,
 				356688A01E6D242C006A53BA /* Detail.storyboard in Resources */,
@@ -1103,6 +1117,7 @@
 				356688FB1E6D242C006A53BA /* YYTextView.m in Sources */,
 				35DC82C71E6D7B1E005C445B /* DetailView.m in Sources */,
 				356688AF1E6D242C006A53BA /* FMDatabaseQueue.m in Sources */,
+				35DC839D1E6E9537005C445B /* PhotoBrwoserViewController.m in Sources */,
 				356688E31E6D242C006A53BA /* YYSpriteSheetImage.m in Sources */,
 				356688B31E6D242C006A53BA /* SVProgressAnimatedView.m in Sources */,
 				356688C51E6D242C006A53BA /* CALayer+YYAdd.m in Sources */,
@@ -1155,6 +1170,7 @@
 				356688B71E6D242C006A53BA /* NSArray+YYAdd.m in Sources */,
 				356688DF1E6D242C006A53BA /* YYFrameImage.m in Sources */,
 				356688A81E6D242C006A53BA /* UserModel.m in Sources */,
+				35DC83A21E6E972C005C445B /* PhotoCell.m in Sources */,
 				356688C01E6D242C006A53BA /* NSObject+YYAddForARC.m in Sources */,
 				356689071E6D242C006A53BA /* YYWeakProxy.m in Sources */,
 				35DC82C41E6D4F82005C445B /* DetailMovie.m in Sources */,

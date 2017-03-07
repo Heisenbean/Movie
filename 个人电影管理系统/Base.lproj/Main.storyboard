@@ -400,7 +400,7 @@
         <!--热映-->
         <scene sceneID="HeK-BP-fcd">
             <objects>
-                <collectionViewController title="热映" id="PN1-BA-3mr" customClass="HotMovieViewController" sceneMemberID="viewController">
+                <collectionViewController title="热映" hidesBottomBarWhenPushed="YES" id="PN1-BA-3mr" customClass="HotMovieViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="V9G-32-wzh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>

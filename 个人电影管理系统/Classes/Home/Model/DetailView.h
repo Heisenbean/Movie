@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailMovie.h"
+
 @interface DetailView : UIView <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *movieIcon;
 @property (weak, nonatomic) IBOutlet UILabel *movieName;
@@ -21,5 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 @property (weak, nonatomic) IBOutlet UICollectionView *castCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 @property (strong,nonatomic) DetailMovie *movie;
+@property (nonatomic,copy) void(^didClieckImage)(Casts *cast,NSArray *casts,NSIndexPath *indexPath);
+
 @end

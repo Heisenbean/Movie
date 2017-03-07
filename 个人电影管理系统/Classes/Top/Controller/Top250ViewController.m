@@ -8,6 +8,7 @@
 
 #import "Top250ViewController.h"
 #import "TopMovieCell.h"
+#import "DetailViewController.h"
 @interface Top250ViewController ()
 @property (strong,nonatomic) NSMutableArray *models;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
@@ -61,16 +62,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.models.count;
@@ -85,7 +76,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    MovieModel *model = self.models[indexPath.row];
+    DetailViewController *detail = [UIStoryboard initialViewControllerWithSbName:@"Detail"];
+    detail.movieId = model.id;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 

@@ -8,8 +8,9 @@
 
 #import "DetailView.h"
 #import "CastCell.h"
+
 #define kPreferredMaxLayoutWidth kScreenSize.width - 16
-@implementation DetailView
+@implementation DetailView 
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -20,7 +21,10 @@
     self.akaLabel.preferredMaxLayoutWidth = kPreferredMaxLayoutWidth;
 }
 
-
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.myScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.castCollectionView.frame));
+}
 
 - (void)setMovie:(DetailMovie *)movie{
     _movie = movie;
@@ -64,7 +68,9 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (self.didClieckImage) {
+        self.didClieckImage(self.movie.casts[indexPath.row],self.movie.casts,indexPath);
+    }
 }
 
 @end

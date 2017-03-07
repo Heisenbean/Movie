@@ -10,7 +10,7 @@
 #import "Api.h"
 #import "CastCell.h"
 #import "DetailView.h"
-
+#import "PhotoBrwoserViewController.h"
 @interface DetailViewController ()
 @property (strong, nonatomic) IBOutlet DetailView *detailView;
 
@@ -22,14 +22,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.castCollectionView registerClass:[CastCell class] forCellWithReuseIdentifier:@"cell"];
-    
+    __weak DetailViewController *weakSelf = self;
+    self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:casts.count];
+        for (Casts *cast in casts) {
+            [array addObject:cast.avatars.large];
+        }
+        PhotoBrwoserViewController *browser = [UIStoryboard initialViewControllerWithSbName:@"PhotoBrowser"];
+        browser.indexPath = indexPath;
+        browser.photos = array;
+        [weakSelf presentViewController:browser animated:YES completion:nil];
+    };
     [self loadData];
 }
 
 - (void)loadData{
+    [SVProgressHUD showWithStatus:@"加载中..."];
     [[Api sharedAPI] getDetailMovies:self.movieId callback:^(DetailMovie *movie, NSError *error) {
         self.detailView.movie = movie;
+        [SVProgressHUD dismiss];
     }];
 }
 
