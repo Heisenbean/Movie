@@ -7,7 +7,7 @@
 //
 
 #import "Api.h"
-
+#import "YYModel.h"
 @implementation Api
 + (instancetype)sharedAPI {
     static id singleton = nil;
@@ -35,7 +35,7 @@
         // 5.对从服务器获取到的数据data进行相应的处理：
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
         
-        NSArray *event = [NSArray modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
+        NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
         
         if (event) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,7 +66,7 @@
             NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
             callback(nil,error);
         }else{
-            DetailMovie *model = [DetailMovie modelWithDictionary:dict];
+            DetailMovie *model = [DetailMovie yy_modelWithDictionary:dict];
             callback(model,nil);
         }
     }];

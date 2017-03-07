@@ -7,10 +7,16 @@
 //
 
 #import "CastCell.h"
-
+#import "UIImageView+WebCache.h"
 @implementation CastCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+}
+
 - (void)setCast:(Casts *)cast{
     _castName.text = cast.name;
-    [_castImage setImageWithURL:[NSURL URLWithString:cast.avatars.medium] placeholder:[UIImage imageNamed:@"placeholderImage"]];
+    [_castImage sd_setImageWithURL:[NSURL URLWithString:cast.avatars.medium]  placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    
 }
 @end

@@ -24,7 +24,7 @@ static NSString * const reuseIdentifier = @"cell";
 
     
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    self.layout.itemSize = kScreenSize;
+    self.layout.itemSize = [UIScreen mainScreen].bounds.size;
     // Do any additional setup after loading the view.
 }
 

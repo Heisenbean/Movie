@@ -7,9 +7,9 @@
 //
 
 #import "PhotoCell.h"
-
+#import "UIImageView+WebCache.h"
 @implementation PhotoCell
 - (void)setImageUrl:(NSString *)imageUrl{
-    [_imageView setImageURL:[NSURL URLWithString:imageUrl]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
 }
 @end

@@ -8,8 +8,9 @@
 
 #import "DetailView.h"
 #import "CastCell.h"
+#import "UIImageView+WebCache.h"
 
-#define kPreferredMaxLayoutWidth kScreenSize.width - 16
+#define kPreferredMaxLayoutWidth [UIScreen mainScreen].bounds.size.width - 16
 @implementation DetailView 
 
 - (void)awakeFromNib{
@@ -28,9 +29,9 @@
 
 - (void)setMovie:(DetailMovie *)movie{
     _movie = movie;
-    [_movieIcon setImageWithURL:[NSURL URLWithString:movie.images.large] placeholder:[UIImage imageNamed:@"placeholderImage"]];
+    [_movieIcon sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     _movieName.text = [NSString stringWithFormat:@"%@ (%@)",movie.original_title,movie.year];
-    [_bgImage setImageWithURL:[NSURL URLWithString:movie.images.large] placeholder:[UIImage imageNamed:@"placeholderImage"]];
+    [_bgImage sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     _summryLabel.text = [NSString stringWithFormat:@"%@的简介",movie.original_title];
     _summryContent.text = movie.summary;
     _countryLabel.text = [NSString stringWithFormat:@"地区: %@",[movie.countries componentsJoinedByString:@","]];

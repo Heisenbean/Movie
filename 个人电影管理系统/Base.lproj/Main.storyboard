@@ -331,7 +331,7 @@
         <!--热映-->
         <scene sceneID="Ob2-Cq-7s0">
             <objects>
-                <navigationController title="热映" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="8gp-3u-u6t" sceneMemberID="viewController">
+                <navigationController title="热映" automaticallyAdjustsScrollViewInsets="NO" id="8gp-3u-u6t" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="tgL-Op-x1b">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="热映"/>
@@ -354,7 +354,7 @@
         <!--排行-->
         <scene sceneID="JxV-Dl-5Ip">
             <objects>
-                <navigationController title="排行" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="YhA-Dp-3eS" sceneMemberID="viewController">
+                <navigationController title="排行" automaticallyAdjustsScrollViewInsets="NO" id="YhA-Dp-3eS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="dO4-fW-rDc">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="排行"/>
@@ -377,7 +377,7 @@
         <!--个人-->
         <scene sceneID="61R-XH-Zwc">
             <objects>
-                <navigationController title="个人" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="QJq-bz-UVj" sceneMemberID="viewController">
+                <navigationController title="个人" automaticallyAdjustsScrollViewInsets="NO" id="QJq-bz-UVj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="fBs-D8-Wrm">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="internalTitle" value="个人"/>
@@ -400,7 +400,7 @@
         <!--热映-->
         <scene sceneID="HeK-BP-fcd">
             <objects>
-                <collectionViewController title="热映" hidesBottomBarWhenPushed="YES" id="PN1-BA-3mr" customClass="HotMovieViewController" sceneMemberID="viewController">
+                <collectionViewController title="热映" id="PN1-BA-3mr" customClass="HotMovieViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="V9G-32-wzh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -412,7 +412,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" id="AH4-q1-K4i">
-                            <rect key="frame" x="151" y="167" width="20" height="20"/>
+                            <rect key="frame" x="0.0" y="-64" width="320" height="480"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.1058823529" green="0.74509803919999995" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                         </activityIndicatorView>
@@ -428,7 +428,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="169" height="153"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTZ-4O-EGq" userLabel="电影名">
-                                            <rect key="frame" x="0.0" y="155" width="27" height="15"/>
+                                            <rect key="frame" x="0.0" y="155" width="169" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="Ykm-Uv-KBa"/>
                                             </constraints>
@@ -468,6 +468,7 @@
                                     <constraint firstItem="vQo-0y-gws" firstAttribute="leading" secondItem="YDx-5r-dey" secondAttribute="trailing" constant="2" id="WcH-cA-cZ8"/>
                                     <constraint firstAttribute="trailing" secondItem="rZd-aG-QgG" secondAttribute="trailing" id="XjR-g5-cM2"/>
                                     <constraint firstItem="rYO-7d-Y3r" firstAttribute="leading" secondItem="3AO-bw-1b7" secondAttribute="leading" id="YT4-mG-qY6"/>
+                                    <constraint firstItem="vTZ-4O-EGq" firstAttribute="trailing" secondItem="rZd-aG-QgG" secondAttribute="trailing" id="c1n-Ef-9HN"/>
                                     <constraint firstAttribute="bottom" secondItem="rYO-7d-Y3r" secondAttribute="bottom" id="hem-eJ-L8H"/>
                                     <constraint firstItem="vTZ-4O-EGq" firstAttribute="leading" secondItem="rYO-7d-Y3r" secondAttribute="leading" id="lRn-Xu-5vO"/>
                                     <constraint firstAttribute="bottom" secondItem="YDx-5r-dey" secondAttribute="bottom" id="mvC-CU-14h"/>

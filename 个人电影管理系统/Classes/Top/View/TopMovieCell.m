@@ -7,12 +7,12 @@
 //
 
 #import "TopMovieCell.h"
-
+#import "UIImageView+WebCache.h"
 @implementation TopMovieCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.caster.preferredMaxLayoutWidth = kScreenSize.width -  144;
+    self.caster.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width -  144;
     // Initialization code
 }
 
@@ -24,7 +24,9 @@
 
 - (void)setModel:(MovieModel *)model{
     _name.text = model.title;
-    [_movieIcon setImageWithURL:[NSURL URLWithString:model.images.medium] placeholder:[UIImage imageNamed:@""]];
+    
+
+    [_movieIcon sd_setImageWithURL:[NSURL URLWithString:model.images.medium] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     CGFloat average = model.rating.average;
     if (average <= 3.1) {
         _starIcon.image = [UIImage imageNamed:@"icon_star_1"];

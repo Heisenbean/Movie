@@ -11,8 +11,10 @@
 #import "CastCell.h"
 #import "DetailView.h"
 #import "PhotoBrwoserViewController.h"
-@interface DetailViewController ()
+#import "MWPhotoBrowser.h"
+@interface DetailViewController ()<MWPhotoBrowserDelegate>
 @property (strong, nonatomic) IBOutlet DetailView *detailView;
+@property (strong,nonatomic) NSMutableArray *photos;
 
 @end
 
@@ -24,14 +26,16 @@
     [super viewDidLoad];
     __weak DetailViewController *weakSelf = self;
     self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:casts.count];
+    
+        weakSelf.photos = [NSMutableArray arrayWithCapacity:casts.count];
         for (Casts *cast in casts) {
-            [array addObject:cast.avatars.large];
+            [weakSelf.photos addObject:[[MWPhoto alloc]initWithURL:[NSURL URLWithString:cast.avatars.large]]];
         }
-        PhotoBrwoserViewController *browser = [UIStoryboard initialViewControllerWithSbName:@"PhotoBrowser"];
-        browser.indexPath = indexPath;
-        browser.photos = array;
-        [weakSelf presentViewController:browser animated:YES completion:nil];
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
+        [browser setCurrentPhotoIndex:indexPath.row];
+        [weakSelf.navigationController pushViewController:browser animated:YES];
+
+        
     };
     [self loadData];
 }
@@ -42,6 +46,17 @@
         self.detailView.movie = movie;
         [SVProgressHUD dismiss];
     }];
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        return [self.photos objectAtIndex:index];
+    }
+    return nil;
 }
 
 

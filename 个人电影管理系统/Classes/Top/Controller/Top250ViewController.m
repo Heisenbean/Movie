@@ -9,6 +9,7 @@
 #import "Top250ViewController.h"
 #import "TopMovieCell.h"
 #import "DetailViewController.h"
+#import "YYModel.h"
 @interface Top250ViewController ()
 @property (strong,nonatomic) NSMutableArray *models;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
@@ -48,7 +49,7 @@
         NSArray *datas = dict[@"subjects"];
         [self.models removeAllObjects];
         for (NSDictionary *d in datas) {
-            [self.models addObject:[MovieModel modelWithDictionary:d]];
+            [self.models addObject:[MovieModel yy_modelWithDictionary:d]];
         }
         [self.activity stopAnimating];
         [self.tableView reloadData];

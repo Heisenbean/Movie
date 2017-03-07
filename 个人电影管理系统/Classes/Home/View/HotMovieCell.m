@@ -7,18 +7,12 @@
 //
 
 #import "HotMovieCell.h"
-
+#import "UIImageView+WebCache.h"
 @implementation HotMovieCell
 
-- (void)awakeFromNib{
-    [super awakeFromNib];
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-}
+
 - (void)setModels:(MovieModel *)models{
     _models = models;
-    
-    
-
     _movieName.text = models.title;
     if (models.rating.average != 0) {
         _scoreLabel.text = [NSString stringWithFormat:@"%.1f",models.rating.average];
@@ -27,7 +21,7 @@
     }
     CGFloat average = models.rating.average;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_moviIcon setImageWithURL:[NSURL URLWithString:models.images.large] options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation];
+        [_moviIcon sd_setImageWithURL:[NSURL URLWithString:models.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
         if (average <= 3.1) {
             _starIcon.image = [UIImage imageNamed:@"icon_star_1"];
         }else if (average > 3.1 && average <= 5.1){

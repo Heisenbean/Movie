@@ -40,7 +40,7 @@ static NSString *CellIdentifier = @"cell";
     CGFloat itemLeftMargin = 14;
     CGFloat itemMargin = 16;
     
-    CGFloat itemWidth = (kScreenSize.width - 2 * (itemMargin + itemLeftMargin)) / 3;
+    CGFloat itemWidth = ([UIScreen mainScreen].bounds.size.width - 2 * (itemMargin + itemLeftMargin)) / 3;
     CGFloat itemHeight = itemWidth * 1.7;
     self.layout.minimumLineSpacing = 20;
     self.myCollectionView.contentInset = UIEdgeInsetsMake(10, itemMargin, 20, itemMargin);
