@@ -22,6 +22,4 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *castCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
 @property (strong,nonatomic) DetailMovie *movie;
-@property (strong,nonatomic) NSArray *casts;
-
 @end
