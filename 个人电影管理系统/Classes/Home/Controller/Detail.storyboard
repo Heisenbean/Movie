@@ -44,8 +44,17 @@
                                                         <constraint firstAttribute="height" constant="180" id="iNo-So-6kL"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4A9-zk-aTd">
+                                                    <rect key="frame" x="326" y="160" width="37" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <state key="normal" title="收藏">
+                                                        <color key="titleColor" red="0.1058823529" green="0.74509803919999995" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4A9-zk-aTd" secondAttribute="bottom" constant="6" id="hUb-tH-90o"/>
+                                                <constraint firstAttribute="trailing" secondItem="4A9-zk-aTd" secondAttribute="trailing" constant="12" id="qNe-Sg-Y0K"/>
                                                 <constraint firstAttribute="centerY" secondItem="TO4-DI-q8Y" secondAttribute="centerY" id="uk3-xN-qDU"/>
                                                 <constraint firstAttribute="centerX" secondItem="TO4-DI-q8Y" secondAttribute="centerX" id="xLc-DA-c9p"/>
                                             </constraints>

@@ -9,7 +9,7 @@
 #import "Top250ViewController.h"
 #import "TopMovieCell.h"
 #import "DetailViewController.h"
-#import "YYModel.h"
+#import "Api.h"
 @interface Top250ViewController ()
 @property (strong,nonatomic) NSMutableArray *models;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
@@ -33,29 +33,11 @@
 }
 
 - (void)loadData{
-    // 1.创建一个网络路径
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@top250",baseUrl]];
-    
-    // 2.创建一个网络请求
-    NSURLRequest *request =[NSURLRequest requestWithURL:url];
-    
-    // 3.获得会话对象
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    // 4.根据会话对象，创建一个Task任务：
-    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        // 5.对从服务器获取到的数据data进行相应的处理：
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
-        NSArray *datas = dict[@"subjects"];
-        [self.models removeAllObjects];
-        for (NSDictionary *d in datas) {
-            [self.models addObject:[MovieModel yy_modelWithDictionary:d]];
-        }
+    [[Api sharedAPI] getTop250Movies:0 countNum:20 callback:^(NSArray<MovieModel *> *events, NSError *error) {
+        self.models = [NSMutableArray arrayWithArray:events];
         [self.activity stopAnimating];
         [self.tableView reloadData];
     }];
-    // 6.最后一步，执行任务（resume也是继续执行）:
-    [sessionDataTask resume];
 }
 
 - (void)didReceiveMemoryWarning {

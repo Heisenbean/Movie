@@ -49,7 +49,7 @@ static NSString *CellIdentifier = @"cell";
 
 
 - (void)loadData{
-    [[Api sharedAPI] getHotShowingMovies:@"in_theaters" pageNum:0 countNum:10 callback:^(NSArray<MovieModel *> *events, NSError *error) {
+    [[Api sharedAPI] getHotShowingMovies:0 countNum:10 callback:^(NSArray<MovieModel *> *events, NSError *error) {
         if (error) {
             [SVProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];
         }

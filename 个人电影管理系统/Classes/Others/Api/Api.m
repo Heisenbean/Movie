@@ -9,6 +9,9 @@
 #import "Api.h"
 #import "YYModel.h"
 @implementation Api
+static NSString *hotShowing = @"in_theaters";
+static NSString *top250 = @"top250";
+
 + (instancetype)sharedAPI {
     static id singleton = nil;
     static dispatch_once_t onceToken;
@@ -18,11 +21,9 @@
     return singleton;
 }
 
-
-
-- (void)getHotShowingMovies:(NSString *)action pageNum:(NSUInteger )start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *events, NSError *error))callback{
+- (void)getTop250Movies:(NSUInteger)start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *, NSError *))callback{
     // 1.创建一个网络路径
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,action]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,top250]];
     
     // 2.创建一个网络请求
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
@@ -38,6 +39,31 @@
         NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
         
         if (event) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                callback(event,nil);
+            });
+            
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                callback(nil,error);
+            });
+        }
+    }];
+    
+    // 6.最后一步，执行任务（resume也是继续执行）:
+    [sessionDataTask resume];
+}
+
+- (void)getHotShowingMovies:(NSUInteger )start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *events, NSError *error))callback{
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,hotShowing]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
+        NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
+        if (event) {
         dispatch_async(dispatch_get_main_queue(), ^{
             callback(event,nil);
         });
@@ -49,8 +75,6 @@
             });
         }
     }];
-    
-    // 6.最后一步，执行任务（resume也是继续执行）:
     [sessionDataTask resume];
 }
 
