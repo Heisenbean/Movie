@@ -22,6 +22,12 @@
     // Configure the view for the selected state
 }
 
+- (void)setLocalData:(DetailMovie *)localData{
+    [self setModel:localData];
+    UIImage *templateImage = [UIImage imageWithData:localData.imageDatas];
+    self.movieIcon.image = templateImage;
+}
+
 - (void)setModel:(MovieModel *)model{
     _name.text = model.title;
     

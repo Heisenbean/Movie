@@ -7,7 +7,7 @@
 //
 
 #import "MineViewController.h"
-
+#import "MyCollectionViewController.h"
 @interface MineViewController ()
 
 @end
@@ -24,5 +24,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {   // my collection
+        MyCollectionViewController *collection = [UIStoryboard initialViewControllerWithSbName:@"Collection"];
+        [self.navigationController pushViewController:collection animated:YES];
+    }else if (indexPath.row == 1){  // about us
+    
+    }else{  // logout
+        
+    }
+}
 
 @end

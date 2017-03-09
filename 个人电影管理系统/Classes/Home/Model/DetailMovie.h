@@ -23,4 +23,6 @@
 /// 地区
 @property (strong,nonatomic) NSArray *countries;
 
+@property (strong,nonatomic) NSData *imageDatas;
+
 @end

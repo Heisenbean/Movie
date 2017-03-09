@@ -32,6 +32,8 @@
 		35DC839D1E6E9537005C445B /* PhotoBrwoserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC839C1E6E9537005C445B /* PhotoBrwoserViewController.m */; };
 		35DC839F1E6E9560005C445B /* PhotoBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DC839E1E6E9560005C445B /* PhotoBrowser.storyboard */; };
 		35DC83A21E6E972C005C445B /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC83A11E6E972C005C445B /* PhotoCell.m */; };
+		35DC83C81E715628005C445B /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DC83C71E715628005C445B /* MyCollectionViewController.m */; };
+		35DC83CA1E715631005C445B /* Collection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35DC83C91E715631005C445B /* Collection.storyboard */; };
 		35E1BE0F1E68262C0047EDC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE0E1E68262C0047EDC6 /* UIKit.framework */; };
 		35E1BE111E6826340047EDC6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE101E6826340047EDC6 /* CoreFoundation.framework */; };
 		35E1BE131E68263C0047EDC6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E1BE121E68263C0047EDC6 /* CoreText.framework */; };
@@ -95,6 +97,9 @@
 		35DC839E1E6E9560005C445B /* PhotoBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoBrowser.storyboard; sourceTree = "<group>"; };
 		35DC83A01E6E972C005C445B /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		35DC83A11E6E972C005C445B /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		35DC83C61E715628005C445B /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		35DC83C71E715628005C445B /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		35DC83C91E715631005C445B /* Collection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Collection.storyboard; sourceTree = "<group>"; };
 		35E1BE0E1E68262C0047EDC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		35E1BE101E6826340047EDC6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		35E1BE121E68263C0047EDC6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -248,6 +253,9 @@
 			children = (
 				356687C11E6D242C006A53BA /* MineViewController.h */,
 				356687C21E6D242C006A53BA /* MineViewController.m */,
+				35DC83C61E715628005C445B /* MyCollectionViewController.h */,
+				35DC83C71E715628005C445B /* MyCollectionViewController.m */,
+				35DC83C91E715631005C445B /* Collection.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -489,6 +497,7 @@
 				35B20B921E67E2FE00B99AF0 /* LaunchScreen.storyboard in Resources */,
 				35B20B8F1E67E2FE00B99AF0 /* Assets.xcassets in Resources */,
 				35DC839F1E6E9560005C445B /* PhotoBrowser.storyboard in Resources */,
+				35DC83CA1E715631005C445B /* Collection.storyboard in Resources */,
 				35B20B8D1E67E2FE00B99AF0 /* Main.storyboard in Resources */,
 				356688A61E6D242C006A53BA /* Login.storyboard in Resources */,
 				356688A01E6D242C006A53BA /* Detail.storyboard in Resources */,
@@ -566,6 +575,7 @@
 				356688A91E6D242C006A53BA /* MineViewController.m in Sources */,
 				356688A11E6D242C006A53BA /* DetailViewController.m in Sources */,
 				356688A81E6D242C006A53BA /* UserModel.m in Sources */,
+				35DC83C81E715628005C445B /* MyCollectionViewController.m in Sources */,
 				35DC83A21E6E972C005C445B /* PhotoCell.m in Sources */,
 				35DC82C41E6D4F82005C445B /* DetailMovie.m in Sources */,
 				356689081E6D242C006A53BA /* Top250ViewController.m in Sources */,

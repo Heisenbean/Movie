@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MovieModel.h"
+#import "DetailMovie.h"
 @interface TopMovieCell : UITableViewCell
 @property (strong,nonatomic) MovieModel *model;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -17,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *movieIcon;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (strong,nonatomic) DetailMovie *localData;
 
 @end

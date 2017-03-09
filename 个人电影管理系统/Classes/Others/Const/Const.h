@@ -10,6 +10,8 @@
 #define Const_h
 #import "UIStoryboard+Category.h"
 #import "SVProgressHUD.h"
+#define DocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+
 static NSString * const baseUrl = @"https://api.douban.com/v2/movie/";
 
 #endif /* Const_h */

@@ -10,7 +10,6 @@
 #import "FMDB.h"
 #import "SVProgressHUD.h"
 #import "UIStoryboard+Category.h"
-#define DocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userName;
@@ -28,7 +27,7 @@
 - (IBAction)login {
 
     NSString *sqliteFilePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
-    NSLog(@"%@",DocumentPath);
+    
     FMDatabase *db = [FMDatabase databaseWithPath:sqliteFilePath];
     if (![db open]) {   // 如果无法打开数据库,直接返回
         db = nil; return;
