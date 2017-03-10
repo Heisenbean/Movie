@@ -41,7 +41,8 @@
                     if ([s next]) {
                         if ([self.password.text isEqualToString:[s stringForColumn:@"pwd"]]) {  // 成功匹配
                             [UIApplication sharedApplication].keyWindow.rootViewController = [UIStoryboard initialViewControllerWithSbName:@"Main"];
-                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
+                            NSUInteger uid = [s intForColumn:@"uid"];
+                            [[NSUserDefaults standardUserDefaults] setInteger:uid forKey:@"uid"];
                             return;
                         }else{
                             [SVProgressHUD showErrorWithStatus:@"密码错误"];

@@ -37,10 +37,11 @@
     NSString *dataBasePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
     FMDatabase *db = [FMDatabase databaseWithPath:dataBasePath];
     if ([db open]) {
-        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (uid INTEGER PRIMARY KEY AUTOINCREMENT,name                                                                                                                         TEXT,pwd TEXT);";
+        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (uid INTEGER,id INTEGER,title                                                                                                                         TEXT,images BLOB,summary TEXT,genres TEXT,year TEXT,aka TEXT,countries TEXT,original_title TEXT,rating TEXT,casts BLOB,directors BLOB);";
         if([db executeUpdate:sqlMain]) {
-            FMResultSet *set = [db executeQuery:@"SELECT * FROM collection_table"];
-            
+            NSUInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"uid"];
+
+            FMResultSet *set = [db executeQuery:@"SELECT * FROM collection_table WHERE uid = ?",@(uid)];
             while ([set next]) {
                 DetailMovie *movie = [[DetailMovie alloc]init];
                 movie.title = [set stringForColumn:@"title"];
@@ -66,11 +67,6 @@
             [self.tableView reloadData];
         }
     }
-}
-
-- (NSString *)deleteString:(NSString *)str{
-    NSString *temp = [str stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    return [temp stringByReplacingOccurrencesOfString:@")" withString:@""];
 }
 
 #pragma mark - UITableViewDataSource

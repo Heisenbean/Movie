@@ -63,16 +63,18 @@
     if (![db open]) {   // 如果无法打开数据库,直接返回
         db = nil; return;
     }else{
-        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (id INTEGER PRIMARY KEY AUTOINCREMENT,title                                                                                                                         TEXT,images BLOB,summary TEXT,genres TEXT,year TEXT,aka TEXT,countries TEXT,original_title TEXT,rating TEXT,casts BLOB,directors BLOB);";
+        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (uid INTEGER,id INTEGER,title                                                                                                                         TEXT,images BLOB,summary TEXT,genres TEXT,year TEXT,aka TEXT,countries TEXT,original_title TEXT,rating TEXT,casts BLOB,directors BLOB);";
         if([db executeUpdate:sqlMain]) {
             FMResultSet *set = [db executeQuery:@"SELECT * FROM collection_table WHERE id = ? ",self.movieId];
             if ([set next]) {   // 如果有
                 [SVProgressHUD showErrorWithStatus:@"您已收藏过"];
                 return;
             }else{
-                BOOL success = [db executeUpdate:@"INSERT INTO collection_table  (id,title,images,summary,genres,year,aka,countries,original_title,rating,casts,directors) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?)",
+                NSUInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"uid"];
+                BOOL success = [db executeUpdate:@"INSERT INTO collection_table  (uid,id,title,images,summary,genres,year,aka,countries,original_title,rating,casts,directors) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                                @(uid),
                                 @(self.movieId.integerValue),
-                                self.detailView.movieName.text,
+                                self.detailView.movie.title,
                                 UIImagePNGRepresentation(self.detailView.movieIcon.image),
                                 self.detailView.movie.summary,
                                 [self.detailView.movie.genres componentsJoinedByString:@","],
@@ -98,6 +100,7 @@
 
 - (NSData *)modelArrayToDicArray:(NSArray *)models{
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:models.count];
+    // NSKeyedArchiver不能保存模型,所以数组中的模型要转为字典
     for (Casts *c in models) {
         [array addObject:[c yy_modelToJSONObject]];
     }

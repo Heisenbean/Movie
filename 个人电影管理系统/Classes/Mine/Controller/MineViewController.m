@@ -32,7 +32,17 @@
     }else if (indexPath.row == 1){  // about us
     
     }else{  // logout
-        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *certain = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = [UIStoryboard initialViewControllerWithSbName:@"Login"];
+        }];
+        [alert addAction:cancel];
+        [alert addAction:certain];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alert animated:YES completion:nil];
+        });
     }
 }
 
