@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的收藏";
     [self loadSqliteData];
 }
 
@@ -90,9 +91,29 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 160;
+    return 155;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    MovieModel *m = self.models[indexPath.row];
+    NSString *id = m.id;
+    NSString *dataBasePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dataBasePath];
+    if ([db open]) {
+        BOOL success = [db executeUpdate:@"DELETE FROM collection_table WHERE id = ?",id];
+        if (success) {
+            [SVProgressHUD showSuccessWithStatus:@"取消收藏"];
+            [self.models removeObject:m];
+            [self.tableView reloadData];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"取消失败"];
+        }
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"取消收藏";
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
