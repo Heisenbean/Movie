@@ -62,7 +62,7 @@ static NSString *top250 = @"top250";
 
 - (void)getHotShowingMovies:(NSUInteger )start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *events, NSError *error))callback{
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,hotShowing]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?count=30",baseUrl,hotShowing]];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {

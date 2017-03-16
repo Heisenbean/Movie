@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configRefresh];
     [self loadData];
     self.pageNum = 0;
     // Do any additional setup after loading the view.
@@ -45,6 +44,7 @@
         self.models = [NSMutableArray arrayWithArray:events];
         [self.activity stopAnimating];
         [self.tableView reloadData];
+        [self configRefresh];
     }];
 }
 

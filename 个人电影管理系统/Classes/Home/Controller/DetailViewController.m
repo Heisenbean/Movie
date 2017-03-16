@@ -26,9 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.localData) {
+        [self loadLocalData];
+    }else{
+        [self loadData];
+    }
+    
     __weak DetailViewController *weakSelf = self;
     self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
-    
         weakSelf.photos = [NSMutableArray arrayWithCapacity:casts.count];
         for (Casts *cast in casts) {
             [weakSelf.photos addObject:[[MWPhoto alloc]initWithURL:[NSURL URLWithString:cast.avatars.large]]];
@@ -36,10 +41,7 @@
         MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
         [browser setCurrentPhotoIndex:indexPath.row];
         [weakSelf.navigationController pushViewController:browser animated:YES];
-
-        
     };
-    [self loadData];
 }
 
 - (void)loadData{
@@ -48,6 +50,10 @@
         self.detailView.movie = movie;
         [SVProgressHUD dismiss];
     }];
+}
+
+- (void)loadLocalData{
+    
 }
 
 /* 收藏到个人收藏逻辑:
