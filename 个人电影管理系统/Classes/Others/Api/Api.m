@@ -23,7 +23,7 @@ static NSString *top250 = @"top250";
 
 - (void)getTop250Movies:(NSUInteger)start countNum:(NSUInteger)num callback:(void (^)(NSArray<MovieModel *> *, NSError *))callback{
     // 1.创建一个网络路径
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,top250]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?start=%ld",baseUrl,top250,start * 20 + 1 ]];
     
     // 2.创建一个网络请求
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
@@ -34,21 +34,26 @@ static NSString *top250 = @"top250";
     // 4.根据会话对象，创建一个Task任务：
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
         // 5.对从服务器获取到的数据data进行相应的处理：
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
-        
-        NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
-        
-        if (event) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                callback(event,nil);
-            });
+        if (data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
             
+            NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
+            
+            if (event) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback(event,nil);
+                });
+                
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                    callback(nil,error);
+                });
+            }
         }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
-                callback(nil,error);
-            });
+            [SVProgressHUD showErrorWithStatus:@"暂无数据"];
         }
+     
     }];
     
     // 6.最后一步，执行任务（resume也是继续执行）:
@@ -61,19 +66,24 @@ static NSString *top250 = @"top250";
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
-        NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
-        if (event) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            callback(event,nil);
-        });
-           
+        if (data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
+            NSArray *event = [NSArray yy_modelArrayWithClass:[MovieModel class] json:dict[@"subjects"]];
+            if (event) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback(event,nil);
+                });
+                
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                    callback(nil,error);
+                });
+            }
         }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
-                callback(nil,error);
-            });
+            [SVProgressHUD showErrorWithStatus:@"暂无数据"];
         }
+    
     }];
     [sessionDataTask resume];
 }
@@ -85,14 +95,20 @@ static NSString *top250 = @"top250";
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
-        if(!dict){
-            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
-            callback(nil,error);
+        if(data){
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
+            
+            if(!dict){
+                NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                callback(nil,error);
+            }else{
+                DetailMovie *model = [DetailMovie yy_modelWithDictionary:dict];
+                callback(model,nil);
+            }
         }else{
-            DetailMovie *model = [DetailMovie yy_modelWithDictionary:dict];
-            callback(model,nil);
+            [SVProgressHUD showErrorWithStatus:@"暂无数据"];
         }
+        
     }];
     
     [sessionDataTask resume];

@@ -10,10 +10,12 @@
 #import "TopMovieCell.h"
 #import "DetailViewController.h"
 #import "Api.h"
+#import "MJRefresh.h"
 @interface Top250ViewController ()
 @property (strong,nonatomic) NSMutableArray *models;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,assign) NSUInteger pageNum;
 
 @end
 
@@ -28,8 +30,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configRefresh];
     [self loadData];
+    self.pageNum = 0;
     // Do any additional setup after loading the view.
+}
+
+- (void)configRefresh{
+    self.tableView.mj_footer  = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 - (void)loadData{
@@ -37,6 +45,20 @@
         self.models = [NSMutableArray arrayWithArray:events];
         [self.activity stopAnimating];
         [self.tableView reloadData];
+    }];
+}
+
+- (void)loadMoreData{
+    self.pageNum++;
+    [[Api sharedAPI] getTop250Movies:self.pageNum countNum:20 callback:^(NSArray<MovieModel *> *events, NSError *error) {
+        if (error) {
+            self.pageNum--;
+        }else{
+            [self.models addObjectsFromArray:events];
+            [self.activity stopAnimating];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+        }
     }];
 }
 

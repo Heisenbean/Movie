@@ -10,4 +10,5 @@ pod "YYModel"
 pod "MWPhotoBrowser"
 pod 'FMDB'
 pod 'SVProgressHUD'
+pod 'MJRefresh'
 end

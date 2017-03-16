@@ -30,9 +30,9 @@
 - (void)setMovie:(DetailMovie *)movie{
     _movie = movie;
     [_movieIcon sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
-    _movieName.text = [NSString stringWithFormat:@"%@ (%@)",movie.original_title,movie.year];
+    _movieName.text = [NSString stringWithFormat:@"%@ (%@)",movie.title,movie.year];
     [_bgImage sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
-    _summryLabel.text = [NSString stringWithFormat:@"%@的简介",movie.original_title];
+    _summryLabel.text = [NSString stringWithFormat:@"%@的简介",movie.title];
     _summryContent.text = movie.summary;
     _countryLabel.text = [NSString stringWithFormat:@"地区: %@",[movie.countries componentsJoinedByString:@","]];
     _akaLabel.text = [NSString stringWithFormat:@"又名: %@",[movie.aka componentsJoinedByString:@","]];
