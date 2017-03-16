@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MovieModel;
+@class DetailMovie;
 @interface DetailViewController : UIViewController
 
 @property (nonatomic,copy) NSString *movieId;
-@property (strong,nonatomic) MovieModel *localData;
+@property (strong,nonatomic) DetailMovie *localData;
 
 @end

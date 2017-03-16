@@ -29,9 +29,15 @@
 
 - (void)setMovie:(DetailMovie *)movie{
     _movie = movie;
-    [_movieIcon sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    if (movie.images) {
+        [_movieIcon sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+        [_bgImage sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+
+    }else{
+        _movieIcon.image = [UIImage imageWithData:movie.imageDatas];
+        _bgImage.image = [UIImage imageWithData:movie.imageDatas];
+    }
     _movieName.text = [NSString stringWithFormat:@"%@ (%@)",movie.title,movie.year];
-    [_bgImage sd_setImageWithURL:[NSURL URLWithString:movie.images.large] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     _summryLabel.text = [NSString stringWithFormat:@"%@的简介",movie.title];
     _summryContent.text = movie.summary;
     _countryLabel.text = [NSString stringWithFormat:@"地区: %@",[movie.countries componentsJoinedByString:@","]];
@@ -69,8 +75,18 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.didClieckImage) {
-        self.didClieckImage(self.movie.casts[indexPath.row],self.movie.casts,indexPath);
+    if (self.movie.images) {
+        if (self.didClieckImage) {
+            self.didClieckImage(self.movie.casts[indexPath.row],self.movie.casts,indexPath);
+        }
+    }else{
+        if (self.didClieckImage) {
+            NSMutableArray *images = [NSMutableArray arrayWithCapacity:collectionView.visibleCells.count];
+            for (CastCell *cell in collectionView.visibleCells) {
+                [images addObject:cell.castImage.image];
+            }
+            self.didClieckImage(nil,images,indexPath);
+        }
     }
 }
 

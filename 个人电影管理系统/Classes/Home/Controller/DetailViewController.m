@@ -26,22 +26,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak DetailViewController *weakSelf = self;
+
     if (self.localData) {
-        [self loadLocalData];
+        self.detailView.movie = self.localData;
+        weakSelf.detailView.didClieckImage = ^(Casts *cast,NSArray *images,NSIndexPath *indexPath){
+            weakSelf.photos = [NSMutableArray arrayWithCapacity:images.count];
+            for (UIImage *image in images) {
+                [weakSelf.photos addObject:[[MWPhoto alloc]initWithImage:image]];
+            }
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
+            [browser setCurrentPhotoIndex:indexPath.row];
+            [weakSelf.navigationController pushViewController:browser animated:YES];
+
+        };
     }else{
         [self loadData];
+        
+        self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
+            weakSelf.photos = [NSMutableArray arrayWithCapacity:casts.count];
+            for (Casts *cast in casts) {
+                [weakSelf.photos addObject:[[MWPhoto alloc]initWithURL:[NSURL URLWithString:cast.avatars.large]]];
+            }
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
+            [browser setCurrentPhotoIndex:indexPath.row];
+            [weakSelf.navigationController pushViewController:browser animated:YES];
+
+        };
+
     }
-    
-    __weak DetailViewController *weakSelf = self;
-    self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
-        weakSelf.photos = [NSMutableArray arrayWithCapacity:casts.count];
-        for (Casts *cast in casts) {
-            [weakSelf.photos addObject:[[MWPhoto alloc]initWithURL:[NSURL URLWithString:cast.avatars.large]]];
-        }
-        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
-        [browser setCurrentPhotoIndex:indexPath.row];
-        [weakSelf.navigationController pushViewController:browser animated:YES];
-    };
+
 }
 
 - (void)loadData{
@@ -50,10 +64,6 @@
         self.detailView.movie = movie;
         [SVProgressHUD dismiss];
     }];
-}
-
-- (void)loadLocalData{
-    
 }
 
 /* 收藏到个人收藏逻辑:

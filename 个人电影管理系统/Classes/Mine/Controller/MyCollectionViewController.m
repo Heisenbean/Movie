@@ -83,9 +83,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MovieModel *model = self.models[indexPath.row];
+    DetailMovie *model = self.models[indexPath.row];
     DetailViewController *detail = [UIStoryboard initialViewControllerWithSbName:@"Detail"];
     detail.movieId = model.id;
+    detail.localData = model;
     [self.navigationController pushViewController:detail animated:YES];
 }
 
