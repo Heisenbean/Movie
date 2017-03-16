@@ -16,7 +16,7 @@
 
 - (void)setCast:(Casts *)cast{
     _castName.text = cast.name;
-    [_castImage sd_setImageWithURL:[NSURL URLWithString:cast.avatars.medium]  placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    [_castImage sd_setImageWithURL:[NSURL URLWithString:cast.avatars.large]  placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     
 }
 @end
