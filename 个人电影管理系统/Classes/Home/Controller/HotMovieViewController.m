@@ -47,6 +47,9 @@ static NSString *CellIdentifier = @"cell";
     self.layout.itemSize = CGSizeMake(itemWidth, itemHeight);
 }
 
+- (IBAction)search:(id)sender {
+    
+}
 
 - (void)loadData{
     [[Api sharedAPI] getHotShowingMovies:0 countNum:10 callback:^(NSArray<MovieModel *> *events, NSError *error) {

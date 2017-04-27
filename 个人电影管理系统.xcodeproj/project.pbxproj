@@ -147,22 +147,23 @@
 		356687A61E6D242C006A53BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				356687A71E6D242C006A53BA /* Home */,
-				356687B61E6D242C006A53BA /* Login&Register */,
-				356687BF1E6D242C006A53BA /* Mine */,
-				356687C51E6D242C006A53BA /* Others */,
-				356688981E6D242C006A53BA /* Top */,
+				356687B61E6D242C006A53BA /* Login&Register(注册登录) */,
+				356687A71E6D242C006A53BA /* Home(首页/热映) */,
+				356688981E6D242C006A53BA /* Top(排行) */,
+				356687BF1E6D242C006A53BA /* Mine(个人) */,
+				356687C51E6D242C006A53BA /* Others(其他) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		356687A71E6D242C006A53BA /* Home */ = {
+		356687A71E6D242C006A53BA /* Home(首页/热映) */ = {
 			isa = PBXGroup;
 			children = (
 				356687A81E6D242C006A53BA /* Controller */,
 				356687AE1E6D242C006A53BA /* Model */,
 				356687B11E6D242C006A53BA /* View */,
 			);
+			name = "Home(首页/热映)";
 			path = Home;
 			sourceTree = "<group>";
 		};
@@ -202,13 +203,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		356687B61E6D242C006A53BA /* Login&Register */ = {
+		356687B61E6D242C006A53BA /* Login&Register(注册登录) */ = {
 			isa = PBXGroup;
 			children = (
 				356687B71E6D242C006A53BA /* Controller */,
 				356687BB1E6D242C006A53BA /* Model */,
 				356687BE1E6D242C006A53BA /* View */,
 			);
+			name = "Login&Register(注册登录)";
 			path = "Login&Register";
 			sourceTree = "<group>";
 		};
@@ -238,13 +240,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		356687BF1E6D242C006A53BA /* Mine */ = {
+		356687BF1E6D242C006A53BA /* Mine(个人) */ = {
 			isa = PBXGroup;
 			children = (
 				356687C01E6D242C006A53BA /* Controller */,
 				356687C31E6D242C006A53BA /* Model */,
 				356687C41E6D242C006A53BA /* View */,
 			);
+			name = "Mine(个人)";
 			path = Mine;
 			sourceTree = "<group>";
 		};
@@ -274,7 +277,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		356687C51E6D242C006A53BA /* Others */ = {
+		356687C51E6D242C006A53BA /* Others(其他) */ = {
 			isa = PBXGroup;
 			children = (
 				356687C61E6D242C006A53BA /* Api */,
@@ -282,6 +285,7 @@
 				356687C91E6D242C006A53BA /* Extensions */,
 				356687CE1E6D242C006A53BA /* Libs */,
 			);
+			name = "Others(其他)";
 			path = Others;
 			sourceTree = "<group>";
 		};
@@ -325,13 +329,14 @@
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		356688981E6D242C006A53BA /* Top */ = {
+		356688981E6D242C006A53BA /* Top(排行) */ = {
 			isa = PBXGroup;
 			children = (
 				356688991E6D242C006A53BA /* Controller */,
 				3566889C1E6D242C006A53BA /* Model */,
 				3566889D1E6D242C006A53BA /* View */,
 			);
+			name = "Top(排行)";
 			path = Top;
 			sourceTree = "<group>";
 		};
@@ -466,7 +471,7 @@
 				TargetAttributes = {
 					35B20B7E1E67E2FE00B99AF0 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = QFWYKAH2TX;
+						DevelopmentTeam = CYTV43BJ3R;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -698,7 +703,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QFWYKAH2TX;
+				DEVELOPMENT_TEAM = CYTV43BJ3R;
 				GCC_PREFIX_HEADER = "个人电影管理系统/PrefixHeader.pch";
 				INFOPLIST_FILE = "个人电影管理系统/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -713,7 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QFWYKAH2TX;
+				DEVELOPMENT_TEAM = CYTV43BJ3R;
 				GCC_PREFIX_HEADER = "个人电影管理系统/PrefixHeader.pch";
 				INFOPLIST_FILE = "个人电影管理系统/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

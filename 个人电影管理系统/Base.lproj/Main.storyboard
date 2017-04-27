@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lq7-Ti-91m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lq7-Ti-91m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qXy-NW-E3v" id="WL0-Y1-GSQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_heart_red_large" translatesAutoresizingMaskIntoConstraints="NO" id="qpE-Kz-qDt">
@@ -50,7 +50,7 @@
                                         <rect key="frame" x="0.0" y="57" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iMa-W8-ia8" id="R3F-rA-2S9">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_me" translatesAutoresizingMaskIntoConstraints="NO" id="DPj-zO-WkZ">
@@ -78,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="114" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tJZ-CS-2JG" id="yrM-hI-6Pn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onepassword" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-Yq-Vrc">
@@ -96,6 +96,35 @@
                                                 <constraint firstItem="M81-V7-K1u" firstAttribute="centerY" secondItem="VcC-Yq-Vrc" secondAttribute="centerY" id="EdL-wM-tTb"/>
                                                 <constraint firstItem="VcC-Yq-Vrc" firstAttribute="centerY" secondItem="yrM-hI-6Pn" secondAttribute="centerY" id="J24-vz-aqY"/>
                                                 <constraint firstItem="M81-V7-K1u" firstAttribute="leading" secondItem="VcC-Yq-Vrc" secondAttribute="trailing" constant="10" id="hub-OP-1cl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="57" id="hDg-FS-D46">
+                                        <rect key="frame" x="0.0" y="171" width="375" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hDg-FS-D46" id="J0p-ZH-sQi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="job_expire_normal" translatesAutoresizingMaskIntoConstraints="NO" id="5Rv-Jz-TYc">
+                                                    <rect key="frame" x="16" y="17" width="23" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="2EM-dT-yzs"/>
+                                                        <constraint firstAttribute="width" constant="23" id="p60-51-vUC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注销账户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCG-24-rPg">
+                                                    <rect key="frame" x="49" y="19.5" width="62" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gCG-24-rPg" firstAttribute="centerY" secondItem="5Rv-Jz-TYc" secondAttribute="centerY" id="0vS-Gt-S7u"/>
+                                                <constraint firstItem="gCG-24-rPg" firstAttribute="leading" secondItem="5Rv-Jz-TYc" secondAttribute="trailing" constant="10" id="DaR-uV-Mpf"/>
+                                                <constraint firstItem="5Rv-Jz-TYc" firstAttribute="centerY" secondItem="J0p-ZH-sQi" secondAttribute="centerY" id="bRf-1A-bix"/>
+                                                <constraint firstItem="5Rv-Jz-TYc" firstAttribute="leading" secondItem="J0p-ZH-sQi" secondAttribute="leading" constant="16" id="mdt-7G-UsQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -426,7 +455,7 @@
                         </activityIndicatorView>
                         <cells>
                             <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="3AO-bw-1b7" customClass="HotMovieCell">
-                                <rect key="frame" x="76" y="0.0" width="169" height="187"/>
+                                <rect key="frame" x="75.5" y="0.0" width="169" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="169" height="187"/>
@@ -499,14 +528,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="热映" id="YMH-UB-WXa">
-                        <barButtonItem key="rightBarButtonItem" id="Tcr-AK-lzD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Tcr-AK-lzD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F2b-bn-igI">
                                 <rect key="frame" x="284" y="11" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="ic_search_navbar_24x24_"/>
                                 <connections>
                                     <action selector="didClickedSearchButton" destination="PN1-BA-3mr" eventType="touchUpInside" id="GA8-LF-9ub"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <action selector="search:" destination="PN1-BA-3mr" id="1WL-cB-gWq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -525,7 +558,9 @@
     <resources>
         <image name="ic_heart_red_large" width="22" height="18"/>
         <image name="ic_me" width="25" height="25"/>
+        <image name="ic_search_navbar_24x24_" width="24" height="24"/>
         <image name="icon_star_1" width="96" height="16"/>
+        <image name="job_expire_normal" width="33" height="33"/>
         <image name="onepassword" width="23" height="23"/>
         <image name="placeholderImage" width="180" height="180"/>
     </resources>
