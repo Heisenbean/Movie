@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="agM-jz-SaH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="rvw-p2-EC7">
+            <objects>
+                <viewController id="agM-jz-SaH" customClass="SearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gdw-CX-9tH"/>
+                        <viewControllerLayoutGuide type="bottom" id="3qj-dA-qNq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VCX-am-02V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Dq8-pT-gYq">
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="agM-jz-SaH" id="hSK-t0-Ivh"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dq8-pT-gYq" secondAttribute="trailing" id="6T6-6q-Qc1"/>
+                            <constraint firstItem="Dq8-pT-gYq" firstAttribute="top" secondItem="VCX-am-02V" secondAttribute="top" constant="22" id="QfR-Uw-md1"/>
+                            <constraint firstItem="Dq8-pT-gYq" firstAttribute="leading" secondItem="VCX-am-02V" secondAttribute="leading" id="zQ7-2v-BoG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Dq8-pT-gYq" id="gbJ-s0-6cd"/>
+                        <outlet property="searchDisplayController" destination="419-cv-Ka6" id="TDv-xO-5Ir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jx-3B-IIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="419-cv-Ka6">
+                    <connections>
+                        <outlet property="delegate" destination="agM-jz-SaH" id="q4N-zA-chO"/>
+                        <outlet property="searchBar" destination="Dq8-pT-gYq" id="ksv-SD-wRh"/>
+                        <outlet property="searchContentsController" destination="agM-jz-SaH" id="vtw-Pa-Zqk"/>
+                        <outlet property="searchResultsDataSource" destination="agM-jz-SaH" id="XSu-xI-UdD"/>
+                        <outlet property="searchResultsDelegate" destination="agM-jz-SaH" id="Op1-XV-UmO"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="154" y="-188"/>
+        </scene>
+    </scenes>
+</document>

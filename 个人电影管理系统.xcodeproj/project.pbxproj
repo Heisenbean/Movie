@@ -22,6 +22,8 @@
 		356689081E6D242C006A53BA /* Top250ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3566889B1E6D242C006A53BA /* Top250ViewController.m */; };
 		356689091E6D242C006A53BA /* TopMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3566889F1E6D242C006A53BA /* TopMovieCell.m */; };
 		3566890C1E6D24D8006A53BA /* Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 3566890B1E6D24D8006A53BA /* Api.m */; };
+		3590EA921EC02A950051AFBC /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3590EA911EC02A950051AFBC /* Search.storyboard */; };
+		3590EA951EC02CF30051AFBC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3590EA941EC02CF30051AFBC /* SearchViewController.m */; };
 		35B20B841E67E2FE00B99AF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B20B831E67E2FE00B99AF0 /* main.m */; };
 		35B20B871E67E2FE00B99AF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B20B861E67E2FE00B99AF0 /* AppDelegate.m */; };
 		35B20B8D1E67E2FE00B99AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B20B8B1E67E2FE00B99AF0 /* Main.storyboard */; };
@@ -80,6 +82,9 @@
 		3566889F1E6D242C006A53BA /* TopMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopMovieCell.m; sourceTree = "<group>"; };
 		3566890A1E6D24D8006A53BA /* Api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		3566890B1E6D24D8006A53BA /* Api.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.m; sourceTree = "<group>"; };
+		3590EA911EC02A950051AFBC /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		3590EA931EC02CF30051AFBC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		3590EA941EC02CF30051AFBC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		35B20B7F1E67E2FE00B99AF0 /* 个人电影管理系统.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "个人电影管理系统.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B20B831E67E2FE00B99AF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		35B20B851E67E2FE00B99AF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +180,9 @@
 				356687AB1E6D242C006A53BA /* DetailViewController.m */,
 				356687AC1E6D242C006A53BA /* HotMovieViewController.h */,
 				356687AD1E6D242C006A53BA /* HotMovieViewController.m */,
+				3590EA911EC02A950051AFBC /* Search.storyboard */,
+				3590EA931EC02CF30051AFBC /* SearchViewController.h */,
+				3590EA941EC02CF30051AFBC /* SearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				35DC83CA1E715631005C445B /* Collection.storyboard in Resources */,
 				35B20B8D1E67E2FE00B99AF0 /* Main.storyboard in Resources */,
 				356688A61E6D242C006A53BA /* Login.storyboard in Resources */,
+				3590EA921EC02A950051AFBC /* Search.storyboard in Resources */,
 				356688A01E6D242C006A53BA /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +586,7 @@
 				356689091E6D242C006A53BA /* TopMovieCell.m in Sources */,
 				356688AA1E6D242C006A53BA /* CALayer+XibConfiguration.m in Sources */,
 				356688A31E6D242C006A53BA /* MovieModel.m in Sources */,
+				3590EA951EC02CF30051AFBC /* SearchViewController.m in Sources */,
 				356688A91E6D242C006A53BA /* MineViewController.m in Sources */,
 				356688A11E6D242C006A53BA /* DetailViewController.m in Sources */,
 				356688A81E6D242C006A53BA /* UserModel.m in Sources */,

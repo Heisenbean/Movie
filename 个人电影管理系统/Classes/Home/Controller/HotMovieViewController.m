@@ -53,7 +53,9 @@ static NSString *CellIdentifier = @"cell";
 }
 
 - (IBAction)search:(id)sender {
-    
+    UIViewController *search = [UIStoryboard initialViewControllerWithSbName:@"Search"];
+    //UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:search];
+    [self presentViewController:search animated:YES completion:nil];
 }
 
 - (void)loadData{

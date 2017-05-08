@@ -79,7 +79,6 @@
                 [UIApplication sharedApplication].keyWindow.rootViewController = [UIStoryboard initialViewControllerWithSbName:@"Login"];
             });
         }
-
     }
 }
 

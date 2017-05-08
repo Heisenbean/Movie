@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qXy-NW-E3v" id="WL0-Y1-GSQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_heart_red_large" translatesAutoresizingMaskIntoConstraints="NO" id="qpE-Kz-qDt">
@@ -50,7 +50,7 @@
                                         <rect key="frame" x="0.0" y="57" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iMa-W8-ia8" id="R3F-rA-2S9">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_me" translatesAutoresizingMaskIntoConstraints="NO" id="DPj-zO-WkZ">
@@ -78,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="114" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tJZ-CS-2JG" id="yrM-hI-6Pn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onepassword" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-Yq-Vrc">
@@ -103,7 +103,7 @@
                                         <rect key="frame" x="0.0" y="171" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hDg-FS-D46" id="J0p-ZH-sQi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="job_expire_normal" translatesAutoresizingMaskIntoConstraints="NO" id="5Rv-Jz-TYc">
@@ -534,12 +534,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="ic_search_navbar_24x24_"/>
                                 <connections>
-                                    <action selector="didClickedSearchButton" destination="PN1-BA-3mr" eventType="touchUpInside" id="GA8-LF-9ub"/>
+                                    <action selector="search:" destination="PN1-BA-3mr" eventType="touchUpInside" id="4Y7-eJ-pqc"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="search:" destination="PN1-BA-3mr" id="1WL-cB-gWq"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
