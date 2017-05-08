@@ -18,4 +18,6 @@
 
 
 - (void)getDetailMovies:(NSString *)id callback:(void (^)(DetailMovie  *movie, NSError *error))callback;
+
+- (void)searchMovie:(NSString *)keyword callback:(void (^)(NSArray<DetailMovie *> *results, NSError *error))callback;
 @end

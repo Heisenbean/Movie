@@ -113,4 +113,32 @@ static NSString *top250 = @"top250";
     
     [sessionDataTask resume];
 }
+
+- (void)searchMovie:(NSString *)keyword callback:(void (^)(NSArray<DetailMovie *> *, NSError *))callback{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@search?q=%@",baseUrl,keyword]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableLeaves) error:nil];
+            NSArray *event = [NSArray yy_modelArrayWithClass:[DetailMovie class] json:dict[@"subjects"]];
+            if (event) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback(event,nil);
+                });
+                
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"msg":@"暂无数据"}];
+                    callback(nil,error);
+                });
+            }
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"暂无数据"];
+        }
+        
+    }];
+    [sessionDataTask resume];
+
+}
 @end

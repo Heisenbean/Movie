@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchViewController : UIViewController
+@property (nonatomic,copy) void(^dismissCallback)(NSString *id);
 
 @end

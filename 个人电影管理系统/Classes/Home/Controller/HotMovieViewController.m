@@ -12,6 +12,7 @@
 #import "SVProgressHUD.h"
 #import "Api.h"
 #import "DetailViewController.h"
+#import "SearchViewController.h"
 @interface HotMovieViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *layout;
@@ -53,8 +54,15 @@ static NSString *CellIdentifier = @"cell";
 }
 
 - (IBAction)search:(id)sender {
-    UIViewController *search = [UIStoryboard initialViewControllerWithSbName:@"Search"];
-    //UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:search];
+     SearchViewController *search = [UIStoryboard initialViewControllerWithSbName:@"Search"];
+    search.dismissCallback = ^(NSString *id) {
+        DetailViewController *detail = [UIStoryboard initialViewControllerWithSbName:@"Detail"];
+        detail.movieId = id;
+        [self.navigationController pushViewController:detail animated:YES];
+    };
+    //    SearchViewController *search = [[SearchViewController alloc]init];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:search];
+    
     [self presentViewController:search animated:YES completion:nil];
 }
 
