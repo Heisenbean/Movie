@@ -115,7 +115,8 @@ static NSString *top250 = @"top250";
 }
 
 - (void)searchMovie:(NSString *)keyword callback:(void (^)(NSArray<DetailMovie *> *, NSError *))callback{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@search?q=%@",baseUrl,keyword]];
+    
+    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"%@search?q=%@",baseUrl,keyword] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURLRequest *request =[NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data,NSURLResponse * _Nullable response, NSError * _Nullable error) {
