@@ -12,13 +12,8 @@
 
 @property (nonatomic,copy) NSString *name;
 
-@property (nonatomic,copy) NSString *sex;
-
-@property (nonatomic,copy) NSString *phone;
-
 @property (nonatomic,copy) NSString *pwd;
 
-@property (nonatomic,copy) NSString *icon;
 
 
 @end

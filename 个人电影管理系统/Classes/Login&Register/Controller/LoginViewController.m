@@ -25,9 +25,7 @@
 }
 
 - (IBAction)login {
-
     NSString *sqliteFilePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
-    
     FMDatabase *db = [FMDatabase databaseWithPath:sqliteFilePath];
     if (![db open]) {   // 如果无法打开数据库,直接返回
         db = nil; return;
@@ -40,9 +38,12 @@
                 FMResultSet *s = [db executeQuery:@"SELECT * FROM user_table WHERE name = ?",name];
                     if ([s next]) {
                         if ([self.password.text isEqualToString:[s stringForColumn:@"pwd"]]) {  // 成功匹配
+                            
                             [UIApplication sharedApplication].keyWindow.rootViewController = [UIStoryboard initialViewControllerWithSbName:@"Main"];
-                            NSUInteger uid = [s intForColumn:@"uid"];
+                            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"login"];
+                            NSInteger uid = [s intForColumn:@"uid"];
                             [[NSUserDefaults standardUserDefaults] setInteger:uid forKey:@"uid"];
+
                             return;
                         }else{
                             [SVProgressHUD showErrorWithStatus:@"密码错误"];
@@ -60,13 +61,13 @@
 - (IBAction)regis {
     // 获取数据库在项目中的路径
     NSString *sqliteFilePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
-    NSLog(@"%@",DocumentPath);
     FMDatabase *db = [FMDatabase databaseWithPath:sqliteFilePath];
     if (![db open]) {   // 如果无法打开数据库,直接返回
         db = nil;
         return;
     }else{
         NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS user_table  (uid INTEGER PRIMARY KEY AUTOINCREMENT,name                                                                                                                         TEXT,pwd TEXT);";
+        
         if([db executeUpdate:sqlMain]) {
             NSMutableArray *array = [NSMutableArray array];
             FMResultSet *s = [db executeQuery:@"SELECT uid FROM user_table"];
@@ -96,6 +97,11 @@
    
     [db close];
 }
+
+- (IBAction)visitMode:(id)sender {
+    [UIApplication sharedApplication].keyWindow.rootViewController = [UIStoryboard initialViewControllerWithSbName:@"Main"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

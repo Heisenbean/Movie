@@ -29,7 +29,7 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     self.window.backgroundColor = [UIColor whiteColor];
-    BOOL isLogin = [[NSUserDefaults standardUserDefaults] integerForKey:@"uid"];
+    BOOL isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     if (isLogin) {  // 已经登陆
         self.window.rootViewController =  [UIStoryboard initialViewControllerWithSbName:@"Main"];
     }else{

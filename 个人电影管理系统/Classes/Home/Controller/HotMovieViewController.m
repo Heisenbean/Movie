@@ -45,6 +45,11 @@ static NSString *CellIdentifier = @"cell";
     self.layout.minimumLineSpacing = 20;
     self.myCollectionView.contentInset = UIEdgeInsetsMake(10, itemMargin, 20, itemMargin);
     self.layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"login"]) {    // 游客模式
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
 }
 
 - (IBAction)search:(id)sender {

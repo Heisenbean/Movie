@@ -17,6 +17,7 @@
 @interface DetailViewController ()<MWPhotoBrowserDelegate>
 @property (strong, nonatomic) IBOutlet DetailView *detailView;
 @property (strong,nonatomic) NSMutableArray *photos;
+@property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 
 @end
 
@@ -26,8 +27,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    __weak DetailViewController *weakSelf = self;
+    [self initialData];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"login"]) {    // 游客模式
+        self.collectionButton.hidden = YES;
+    }
+    
 
+}
+
+- (void)initialData{
+    __weak DetailViewController *weakSelf = self;
     if (self.localData) {
         self.detailView.movie = self.localData;
         weakSelf.detailView.didClieckImage = ^(Casts *cast,NSArray *images,NSIndexPath *indexPath){
@@ -38,11 +48,10 @@
             MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
             [browser setCurrentPhotoIndex:indexPath.row];
             [weakSelf.navigationController pushViewController:browser animated:YES];
-
+            
         };
     }else{
         [self loadData];
-        
         self.detailView.didClieckImage = ^(Casts *cast,NSArray *casts,NSIndexPath *indexPath){
             weakSelf.photos = [NSMutableArray arrayWithCapacity:casts.count];
             for (Casts *cast in casts) {
@@ -51,9 +60,9 @@
             MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:weakSelf];
             [browser setCurrentPhotoIndex:indexPath.row];
             [weakSelf.navigationController pushViewController:browser animated:YES];
-
+            
         };
-
+        
     }
 
 }
@@ -73,13 +82,11 @@
  */
 - (IBAction)collection {
     NSString *sqliteFilePath = [DocumentPath stringByAppendingPathComponent:@"data.sqlite"];
-    NSLog(@"%@",DocumentPath);
-
     FMDatabase *db = [FMDatabase databaseWithPath:sqliteFilePath];
     if (![db open]) {   // 如果无法打开数据库,直接返回
         db = nil; return;
     }else{
-        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (uid INTEGER,id INTEGER,title                                                                                                                         TEXT,images BLOB,summary TEXT,genres TEXT,year TEXT,aka TEXT,countries TEXT,original_title TEXT,rating TEXT,casts BLOB,directors BLOB);";
+        NSString *sqlMain = @"CREATE TABLE IF NOT EXISTS collection_table  (uid INTEGER,id INTEGER,title TEXT,images BLOB,summary TEXT,genres TEXT,year TEXT,aka TEXT,countries TEXT,original_title TEXT,rating TEXT,casts BLOB,directors BLOB);";
         if([db executeUpdate:sqlMain]) {
             FMResultSet *set = [db executeQuery:@"SELECT * FROM collection_table WHERE id = ? ",self.movieId];
             if ([set next]) {   // 如果有
@@ -103,13 +110,10 @@
                                 [self modelArrayToDicArray:self.detailView.movie.directors]];
                 if (!success) {
                     [SVProgressHUD showErrorWithStatus:@"收藏失败"];
-                    NSLog(@"%@",[db lastErrorMessage]);
                 }else{
                     [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
                 }
-
             }
-
         }
     }
 }
