@@ -52,6 +52,7 @@
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定注销账号吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *certain = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"login"];
             [self deleteUserData];
         }];
         [alert addAction:cancel];
