@@ -78,17 +78,21 @@ static NSString *CellIdentifier = @"cell";
 }
 
 #pragma mark - UICollectionViewDataSource
+// 返回多少个cell
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.models.count;
 }
 
+// cell的样式
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     HotMovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     cell.models = self.models[indexPath.row];
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
+//  点击了某一个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     MovieModel *model = self.models[indexPath.row];
     DetailViewController *detail = [UIStoryboard initialViewControllerWithSbName:@"Detail"];
